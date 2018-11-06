@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanchWCF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace LanchWCF
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public List<Pizza> Pizzas { get; set; }
-        public List<Drink> Drinks { get; set; }
+        public List<PizzaDTO> Pizzas { get; set; }
+        public List<DrinkDTO> Drinks { get; set; }
     }
 }
