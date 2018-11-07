@@ -10,5 +10,9 @@ namespace LanchWCF
     [ServiceContract]
     public interface IOrder
     {
+        [OperationContract]
+        List<PizzaDTO> GetOrders();
+        [OperationContract]
+        void SendOnEmail(string Subject, string Messege,OrderDTO order);
     }
 }

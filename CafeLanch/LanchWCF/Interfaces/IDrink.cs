@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace LanchWCF.Models
 {
     [ServiceContract]
-    public interface ICategory
-   {
-      
-   }
+    public interface IDrink
+    {
+        [OperationContract]
+        List<PizzaDTO> GetDrinks();
+    }
 }

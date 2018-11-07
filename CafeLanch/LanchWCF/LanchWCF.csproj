@@ -44,20 +44,27 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AllClasses.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\DrinkDTO.cs" />
-    <Compile Include="Models\ICategory.cs" />
-    <Compile Include="Models\IDrink.cs" />
-    <Compile Include="Models\IIngredient.cs" />
+    <Compile Include="Interfaces\ICategory.cs" />
+    <Compile Include="Interfaces\IDrink.cs" />
+    <Compile Include="Interfaces\IIngredient.cs" />
     <Compile Include="Models\IngredientDTO.cs" />
-    <Compile Include="Models\IOrder.cs" />
-    <Compile Include="Models\IPizza.cs" />
+    <Compile Include="Interfaces\IOrder.cs" />
+    <Compile Include="Interfaces\IPizza.cs" />
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\PizzaDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CafeLanch.DAL\CafeLanch.DAL.csproj">
+      <Project>{62EC17B3-BC8A-4629-9560-2BF12AA52EF4}</Project>
+      <Name>CafeLanch.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
