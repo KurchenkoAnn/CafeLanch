@@ -51,11 +51,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CafeLanch.cs" />
+    <Compile Include="Migrations\201811071328477_m1.cs" />
+    <Compile Include="Migrations\201811071328477_m1.Designer.cs">
+      <DependentUpon>201811071328477_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="models\Category.cs" />
+    <Compile Include="models\Drink.cs" />
+    <Compile Include="models\Ingredient.cs" />
+    <Compile Include="models\Order.cs" />
+    <Compile Include="models\Pizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811071328477_m1.resx">
+      <DependentUpon>201811071328477_m1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
