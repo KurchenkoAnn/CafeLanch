@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanchWCF.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LanchWCF.Models
 {
-    public class AllClasses : ICategory, IDrink, IPizza, IOrder, IIngredient
+    public class AllClasses : ICategory, IDrink, IPizza, IOrder, IIngredient,ISushi,IDessert
     {
        //CafeLanchDAL allClasses = new CafeLanch();
         public List<PizzaDTO> GetCategories()
@@ -72,6 +73,16 @@ namespace LanchWCF.Models
             smtpClient.EnableSsl = true;
             smtpClient.Send(m);
 
+        }
+
+        public List<DessertDTO> GetDessert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<SushiDTO> GetSushis()
+        {
+            throw new NotImplementedException();
         }
     }
 }

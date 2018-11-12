@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanchWCF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,5 +17,7 @@ namespace LanchWCF
         public string Name { get; set; }
         [DataMember]
         public List<PizzaDTO> Pizzas { get; set; }
+        public List<SushiDTO> Sushis { get; set; }
+        public List<DessertDTO> Desserts { get; set; }
     }
 }

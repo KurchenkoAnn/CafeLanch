@@ -1,27 +1,26 @@
-﻿using LanchWCF.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LanchWCF
+namespace LanchWCF.Models
 {
     [DataContract]
-    public class OrderDTO
+    public class DessertDTO
     {
         [DataMember]
         public int ID { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public string Email { get; set; }
+        public decimal Price { get; set; }
         [DataMember]
-        public List<PizzaDTO> Pizzas { get; set; }
+        public string Path { get; set; }
         [DataMember]
-        public List<DrinkDTO> Drinks { get; set; }
-        public List<SushiDTO> Sushis { get; set; }
-        public List<DessertDTO> Desserts { get; set; }
+        public List<IngredientDTO> Ingredients { get; set; }
+        [DataMember]
+        public List<OrderDTO> Orders { get; set; }
     }
 }
