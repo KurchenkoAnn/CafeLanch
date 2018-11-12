@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace CafeLanchDAL.models
 {
-   public class Ingredient
+    public class Dessert
     {
         [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
-        public List<Sushi> Sushis { get; set; }
-        public List<Dessert> Desserts { get; set; }
-
-        public List<Pizza> Pizzas { get; set; }
-
+        [Required]
+        public decimal Price { get; set; }
+        [Required]
+        public string Path { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }
