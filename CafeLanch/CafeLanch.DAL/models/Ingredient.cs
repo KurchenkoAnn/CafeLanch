@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeLanch.DAL.models
+namespace CafeLanchDAL.models
 {
    public class Ingredient
     {
@@ -13,6 +13,8 @@ namespace CafeLanch.DAL.models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public List<Sushi> Sushis { get; set; }
+
         public List<Pizza> Pizzas { get; set; }
 
     }

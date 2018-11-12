@@ -12,7 +12,7 @@ namespace CafeLanchDAL.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -21,7 +21,7 @@ namespace CafeLanchDAL.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         Category_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
@@ -33,8 +33,8 @@ namespace CafeLanchDAL.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Email = c.String(),
+                        Name = c.String(nullable: false),
+                        Email = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -43,9 +43,9 @@ namespace CafeLanchDAL.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Path = c.String(),
+                        Path = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -54,7 +54,21 @@ namespace CafeLanchDAL.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
+                        Sushi_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Sushis", t => t.Sushi_ID)
+                .Index(t => t.Sushi_ID);
+            
+            CreateTable(
+                "dbo.Sushis",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Path = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -97,10 +111,26 @@ namespace CafeLanchDAL.Migrations
                 .Index(t => t.Pizza_ID)
                 .Index(t => t.Order_ID);
             
+            CreateTable(
+                "dbo.SushiOrders",
+                c => new
+                    {
+                        Sushi_ID = c.Int(nullable: false),
+                        Order_ID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Sushi_ID, t.Order_ID })
+                .ForeignKey("dbo.Sushis", t => t.Sushi_ID, cascadeDelete: true)
+                .ForeignKey("dbo.Orders", t => t.Order_ID, cascadeDelete: true)
+                .Index(t => t.Sushi_ID)
+                .Index(t => t.Order_ID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.SushiOrders", "Order_ID", "dbo.Orders");
+            DropForeignKey("dbo.SushiOrders", "Sushi_ID", "dbo.Sushis");
+            DropForeignKey("dbo.Ingredients", "Sushi_ID", "dbo.Sushis");
             DropForeignKey("dbo.PizzaOrders", "Order_ID", "dbo.Orders");
             DropForeignKey("dbo.PizzaOrders", "Pizza_ID", "dbo.Pizzas");
             DropForeignKey("dbo.IngredientPizzas", "Pizza_ID", "dbo.Pizzas");
@@ -108,16 +138,21 @@ namespace CafeLanchDAL.Migrations
             DropForeignKey("dbo.OrderDrinks", "Drink_ID", "dbo.Drinks");
             DropForeignKey("dbo.OrderDrinks", "Order_ID", "dbo.Orders");
             DropForeignKey("dbo.Drinks", "Category_ID", "dbo.Categories");
+            DropIndex("dbo.SushiOrders", new[] { "Order_ID" });
+            DropIndex("dbo.SushiOrders", new[] { "Sushi_ID" });
             DropIndex("dbo.PizzaOrders", new[] { "Order_ID" });
             DropIndex("dbo.PizzaOrders", new[] { "Pizza_ID" });
             DropIndex("dbo.IngredientPizzas", new[] { "Pizza_ID" });
             DropIndex("dbo.IngredientPizzas", new[] { "Ingredient_ID" });
             DropIndex("dbo.OrderDrinks", new[] { "Drink_ID" });
             DropIndex("dbo.OrderDrinks", new[] { "Order_ID" });
+            DropIndex("dbo.Ingredients", new[] { "Sushi_ID" });
             DropIndex("dbo.Drinks", new[] { "Category_ID" });
+            DropTable("dbo.SushiOrders");
             DropTable("dbo.PizzaOrders");
             DropTable("dbo.IngredientPizzas");
             DropTable("dbo.OrderDrinks");
+            DropTable("dbo.Sushis");
             DropTable("dbo.Ingredients");
             DropTable("dbo.Pizzas");
             DropTable("dbo.Orders");

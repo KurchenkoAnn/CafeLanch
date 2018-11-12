@@ -1,6 +1,6 @@
-namespace CafeLanch.DAL
+namespace CafeLanchDAL
 {
-    using global::CafeLanch.DAL.models;
+    using global::CafeLanchDAL.models;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -17,6 +17,8 @@ namespace CafeLanch.DAL
 
          public virtual DbSet<Pizza> Pizzas { get; set; }
         public virtual DbSet<Ingredient> Ingredients { get; set; }
+        public virtual DbSet<Sushi> Sushis { get; set; }
+
 
         public virtual DbSet<Order> Orders { get; set; }
 

@@ -5,14 +5,14 @@ namespace CafeLanchDAL.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CafeLanch.DAL.CafeLanch>
+    internal sealed class Configuration : DbMigrationsConfiguration<CafeLanchDAL.CafeLanch>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CafeLanch.DAL.CafeLanch context)
+        protected override void Seed(CafeLanchDAL.CafeLanch context)
         {
             //  This method will be called after migrating to the latest version.
 

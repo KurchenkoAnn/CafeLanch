@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeLanch.DAL.models
+namespace CafeLanchDAL.models
 {
     public class Pizza
     {
