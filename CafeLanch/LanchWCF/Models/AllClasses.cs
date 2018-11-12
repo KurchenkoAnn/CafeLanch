@@ -1,4 +1,7 @@
-﻿using LanchWCF.Interfaces;
+﻿
+using CafeLanch;
+using CafeLanch.models;
+using LanchWCF.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,24 +38,24 @@ namespace LanchWCF.Models
       
         public List<PizzaDTO> GetPizzas()
         {
-            //List<Pizza> Pizzas = phoneContext.Pizzas.ToList();
-            //List<PizzaDTO> DTOPizzas = new List<PizzaDTO>();
-            //foreach (var p in Pizzas)
-            //{
-            //    PizzaDTO phone = new PizzaDTO
-            //    {
-            //        ID = p.ID,
-            //       Name = p.Name,
-            //        Price = p.Price,
-            //        Path = p.Path,
+            List<Pizza> Pizzas = CafeLanch.Pizzas.ToList();
+            List<PizzaDTO> DTOPizzas = new List<PizzaDTO>();
+            foreach (var p in Pizzas)
+            {
+                PizzaDTO pizza = new PizzaDTO
+                {
+                    ID = p.ID,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Path = p.Path,
 
-            //    };
-            //    DTOPhones.Add(phone);
-            //}
+                };
+                DTOPizzas.Add(pizza);
+            }
 
 
-            // return DTOPizzas;
-            throw new NotImplementedException();
+            return DTOPizzas;
+            //throw new NotImplementedException();
         }
 
         List<PizzaDTO> IOrder.GetOrders()
