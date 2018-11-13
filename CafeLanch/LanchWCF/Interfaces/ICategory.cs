@@ -11,6 +11,6 @@ namespace LanchWCF.Models
     public interface ICategory
    {
         [OperationContract]
-        List<PizzaDTO> GetCategories();
+        List<CategoryDTO> GetCategories();
     }
 }

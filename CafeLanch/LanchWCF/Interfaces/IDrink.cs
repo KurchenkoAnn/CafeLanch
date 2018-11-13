@@ -11,6 +11,6 @@ namespace LanchWCF.Models
     public interface IDrink
     {
         [OperationContract]
-        List<PizzaDTO> GetDrinks();
+        List<DrinkDTO> GetDrinks();
     }
 }

@@ -1,6 +1,7 @@
-namespace CafeLanch
+namespace cafeLanch
 {
-    using global::CafeLanch.models;
+    using global::cafeLanch.models;
+    using global::CafeLanch.DAL.models;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -25,6 +26,7 @@ namespace CafeLanch
         public virtual DbSet<Drink> Drinks { get; set; }
 
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Dessert> Desserts { get; set; }
 
     }
 

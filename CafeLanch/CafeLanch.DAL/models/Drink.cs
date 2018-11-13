@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeLanch.models
+namespace cafeLanch.models
 {
    public class Drink
     {
@@ -13,6 +13,7 @@ namespace CafeLanch.models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public decimal Price { get; set; }
         public List<Order> Orders { get; set; }
         public Category Category { get; set; }
 
