@@ -18,6 +18,7 @@ namespace CafeLanchDAL
          public virtual DbSet<Pizza> Pizzas { get; set; }
         public virtual DbSet<Ingredient> Ingredients { get; set; }
         public virtual DbSet<Sushi> Sushis { get; set; }
+        public virtual DbSet<Dessert> Desserts { get; set; }
 
 
         public virtual DbSet<Order> Orders { get; set; }

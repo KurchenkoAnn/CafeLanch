@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Category.cs" />
+    <Compile Include="models\Dessert.cs" />
     <Compile Include="models\Drink.cs" />
     <Compile Include="models\Ingredient.cs" />
     <Compile Include="models\Order.cs" />

@@ -17,6 +17,8 @@ namespace CafeLanchDAL.models
         public string Email { get; set; }
         [Required]
         public List<Pizza> Pizzas { get; set; }
+        public List<Dessert> Desserts { get; set; }
+
         public List<Sushi> Sushis { get; set; }
         public List<Drink> Drinks { get; set; }
     }

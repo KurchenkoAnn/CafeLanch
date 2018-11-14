@@ -13,6 +13,10 @@ namespace CafeLanchDAL.models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public decimal Price { get; set; }
+        [Required]
+        public string Path { get; set; }
         public List<Order> Orders { get; set; }
         public Category Category { get; set; }
 
