@@ -81,7 +81,7 @@ namespace LanchWCF.Models
       
         public List<PizzaDTO> GetPizzas()
         {
-            List<Pizza> Pizzas = cafelanch.Pizzas.ToList();
+            List<Pizza> Pizzas = cafelanch.Pizzas.Include("Ingredients").ToList();
             List<PizzaDTO> DTOPizzas = new List<PizzaDTO>();
             foreach (var p in Pizzas)
             {
@@ -91,8 +91,18 @@ namespace LanchWCF.Models
                     Name = p.Name,
                     Price = p.Price,
                     Path = p.Path,
-
+                    
                 };
+                pizza.Ingredients = new List<IngredientDTO>();
+                foreach(var i in p.Ingredients)
+                {
+                    IngredientDTO ingredient = new IngredientDTO
+                    {
+                        ID = i.ID,
+                        Name = i.Name
+                    };
+                    pizza.Ingredients.Add(ingredient);
+                }
                 DTOPizzas.Add(pizza);
             }
 
@@ -120,7 +130,7 @@ namespace LanchWCF.Models
 
         public List<DessertDTO> GetDessert()
         {
-            List<Dessert> Desserts = cafelanch.Desserts.ToList();
+            List<Dessert> Desserts = cafelanch.Desserts.Include("Ingredients").ToList();
             List<DessertDTO> DTODesserts = new List<DessertDTO>();
             foreach (var p in Desserts)
             {
@@ -131,6 +141,16 @@ namespace LanchWCF.Models
                     Price = p.Price
 
                 };
+                desert.Ingredients = new List<IngredientDTO>();
+                foreach (var i in p.Ingredients)
+                {
+                    IngredientDTO ingredient = new IngredientDTO
+                    {
+                        ID = i.ID,
+                        Name = i.Name
+                    };
+                    desert.Ingredients.Add(ingredient);
+                }
                 DTODesserts.Add(desert);
             }
             return DTODesserts;
@@ -138,7 +158,7 @@ namespace LanchWCF.Models
 
         public List<SushiDTO> GetSushis()
         {
-            List<Sushi> Sushis = cafelanch.Sushis.ToList();
+            List<Sushi> Sushis = cafelanch.Sushis.Include("Ingredients").ToList();
             List<SushiDTO> DTOSushis = new List<SushiDTO>();
             foreach (var p in Sushis)
             {
@@ -150,6 +170,16 @@ namespace LanchWCF.Models
                     Path = p.Path,
                    
                 };
+                sushi.Ingredients = new List<IngredientDTO>();
+                foreach (var i in p.Ingredients)
+                {
+                    IngredientDTO ingredient = new IngredientDTO
+                    {
+                        ID = i.ID,
+                        Name = i.Name
+                    };
+                    sushi.Ingredients.Add(ingredient);
+                }
                 DTOSushis.Add(sushi);
             }
 

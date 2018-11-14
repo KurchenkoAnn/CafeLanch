@@ -17,5 +17,7 @@ namespace CafeLanchDAL.models
 
         public List<Pizza> Pizzas { get; set; }
 
+        public List<Dessert> Desserts { get; set; }
+
     }
 }
