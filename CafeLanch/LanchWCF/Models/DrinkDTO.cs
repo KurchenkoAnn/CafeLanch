@@ -17,6 +17,8 @@ namespace LanchWCF.Models
         [DataMember]
         public decimal Price { get; set; }
         [DataMember]
+        public string Path { get; set; }
+        [DataMember]
         public List<OrderDTO> Orders { get; set; }
     }
 }

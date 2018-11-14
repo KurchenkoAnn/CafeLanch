@@ -1,7 +1,6 @@
 namespace cafeLanch
 {
-    using global::cafeLanch.models;
-    using global::CafeLanch.DAL.models;
+    using CafeLanchDAL.models;
     using System;
     using System.Data.Entity;
     using System.Linq;

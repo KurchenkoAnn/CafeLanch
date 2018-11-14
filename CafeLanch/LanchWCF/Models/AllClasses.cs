@@ -1,7 +1,6 @@
 ﻿
-using cafeLanch;
-using cafeLanch.models;
-using CafeLanch.DAL.models;
+
+using CafeLanchDAL.models;
 using LanchWCF.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,14 +9,15 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using CafeLanch;
+using CafeLanchDAL;
+using cafeLanch;
 
 namespace LanchWCF.Models
 {
     
     public class AllClasses : ICategory, IDrink, IPizza, IOrder, IIngredient,ISushi,IDessert
     {
-         cafeLanch.CafeLanch cafelanch = new cafeLanch.CafeLanch();
+        CafeLanch cafelanch = new CafeLanch();
         
         public List<CategoryDTO> GetCategories()
         {

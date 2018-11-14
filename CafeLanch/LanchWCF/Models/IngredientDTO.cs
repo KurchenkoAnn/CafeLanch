@@ -17,7 +17,9 @@ namespace LanchWCF
         public string Name { get; set; }
         [DataMember]
         public List<PizzaDTO> Pizzas { get; set; }
+        [DataMember]
         public List<SushiDTO> Sushis { get; set; }
+        [DataMember]
         public List<DessertDTO> Desserts { get; set; }
     }
 }
