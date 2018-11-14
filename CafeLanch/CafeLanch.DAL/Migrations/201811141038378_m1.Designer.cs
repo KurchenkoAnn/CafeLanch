@@ -13,7 +13,7 @@ namespace CafeLanchDAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201811121321364_m1"; }
+            get { return "201811141038378_m1"; }
         }
         
         string IMigrationMetadata.Source

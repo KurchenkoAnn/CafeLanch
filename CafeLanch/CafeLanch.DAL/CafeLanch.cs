@@ -25,7 +25,7 @@ namespace CafeLanchDAL
 
         public virtual DbSet<Drink> Drinks { get; set; }
 
-        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Category> Categoriess { get; set; }
 
     }
 
