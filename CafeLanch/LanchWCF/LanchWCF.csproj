@@ -73,6 +73,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CafeLanch.DAL\CafeLanchDAL.csproj">
       <Project>{62ec17b3-bc8a-4629-9560-2bf12aa52ef4}</Project>
       <Name>CafeLanchDAL</Name>
