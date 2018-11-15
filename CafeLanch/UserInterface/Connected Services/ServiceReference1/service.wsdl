@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AllClasses" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/LanchWCF" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/LanchWCF.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPizza_GetPizzas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPizzas" />
+  </wsdl:message>
+  <wsdl:message name="IPizza_GetPizzas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPizzasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISushi_GetSushis_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSushis" />
+  </wsdl:message>
+  <wsdl:message name="ISushi_GetSushis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSushisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDessert_GetDessert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDessert" />
+  </wsdl:message>
+  <wsdl:message name="IDessert_GetDessert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDessertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDrink_GetDrinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrinks" />
+  </wsdl:message>
+  <wsdl:message name="IDrink_GetDrinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_GetOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrders" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_GetOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_SendOnEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendOnEmail" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_SendOnEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendOnEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPizza">
+    <wsdl:operation name="GetPizzas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizza/GetPizzas" message="tns:IPizza_GetPizzas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizza/GetPizzasResponse" message="tns:IPizza_GetPizzas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISushi">
+    <wsdl:operation name="GetSushis">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISushi/GetSushis" message="tns:ISushi_GetSushis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISushi/GetSushisResponse" message="tns:ISushi_GetSushis_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDessert">
+    <wsdl:operation name="GetDessert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDessert/GetDessert" message="tns:IDessert_GetDessert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDessert/GetDessertResponse" message="tns:IDessert_GetDessert_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDrink">
+    <wsdl:operation name="GetDrinks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDrink/GetDrinks" message="tns:IDrink_GetDrinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDrink/GetDrinksResponse" message="tns:IDrink_GetDrinks_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IOrder">
+    <wsdl:operation name="GetOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/GetOrders" message="tns:IOrder_GetOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/GetOrdersResponse" message="tns:IOrder_GetOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOnEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/SendOnEmail" message="tns:IOrder_SendOnEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/SendOnEmailResponse" message="tns:IOrder_SendOnEmail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICategory">
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetCategories" message="tns:ICategory_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetCategoriesResponse" message="tns:ICategory_GetCategories_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Pizza" type="tns:IPizza">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPizzas">
+      <soap:operation soapAction="http://tempuri.org/IPizza/GetPizzas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Sushi" type="tns:ISushi">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSushis">
+      <soap:operation soapAction="http://tempuri.org/ISushi/GetSushis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Dessert" type="tns:IDessert">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDessert">
+      <soap:operation soapAction="http://tempuri.org/IDessert/GetDessert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Drink" type="tns:IDrink">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDrinks">
+      <soap:operation soapAction="http://tempuri.org/IDrink/GetDrinks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Order" type="tns:IOrder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="http://tempuri.org/IOrder/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOnEmail">
+      <soap:operation soapAction="http://tempuri.org/IOrder/SendOnEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Category" type="tns:ICategory">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/ICategory/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AllClasses">
+    <wsdl:port name="Pizza" binding="tns:Pizza">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Pizza" />
+    </wsdl:port>
+    <wsdl:port name="Sushi" binding="tns:Sushi">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Sushi" />
+    </wsdl:port>
+    <wsdl:port name="Dessert" binding="tns:Dessert">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Dessert" />
+    </wsdl:port>
+    <wsdl:port name="Drink" binding="tns:Drink">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Drink" />
+    </wsdl:port>
+    <wsdl:port name="Order" binding="tns:Order">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Order" />
+    </wsdl:port>
+    <wsdl:port name="Category" binding="tns:Category">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Category" />
+    </wsdl:port>
+    <wsdl:port name="Ingredient" binding="tns:Category">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/LanchWCF/Service1/Ingredient" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

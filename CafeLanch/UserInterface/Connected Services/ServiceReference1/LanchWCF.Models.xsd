@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LanchWCF.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LanchWCF.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/LanchWCF" />
+  <xs:complexType name="ArrayOfDessertDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DessertDTO" nillable="true" type="tns:DessertDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDessertDTO" nillable="true" type="tns:ArrayOfDessertDTO" />
+  <xs:complexType name="DessertDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LanchWCF" minOccurs="0" name="Ingredients" nillable="true" type="q1:ArrayOfIngredientDTO" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LanchWCF" minOccurs="0" name="Orders" nillable="true" type="q2:ArrayOfOrderDTO" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DessertDTO" nillable="true" type="tns:DessertDTO" />
+  <xs:complexType name="ArrayOfDrinkDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DrinkDTO" nillable="true" type="tns:DrinkDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDrinkDTO" nillable="true" type="tns:ArrayOfDrinkDTO" />
+  <xs:complexType name="DrinkDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LanchWCF" minOccurs="0" name="Orders" nillable="true" type="q3:ArrayOfOrderDTO" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrinkDTO" nillable="true" type="tns:DrinkDTO" />
+  <xs:complexType name="ArrayOfSushiDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SushiDTO" nillable="true" type="tns:SushiDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSushiDTO" nillable="true" type="tns:ArrayOfSushiDTO" />
+  <xs:complexType name="SushiDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LanchWCF" minOccurs="0" name="Ingredients" nillable="true" type="q4:ArrayOfIngredientDTO" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LanchWCF" minOccurs="0" name="Orders" nillable="true" type="q5:ArrayOfOrderDTO" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SushiDTO" nillable="true" type="tns:SushiDTO" />
+  <xs:complexType name="ArrayOfCategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryDTO" nillable="true" type="tns:CategoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryDTO" nillable="true" type="tns:ArrayOfCategoryDTO" />
+  <xs:complexType name="CategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Drinks" nillable="true" type="tns:ArrayOfDrinkDTO" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryDTO" nillable="true" type="tns:CategoryDTO" />
+</xs:schema>
