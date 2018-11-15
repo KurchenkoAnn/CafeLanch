@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp11"
         mc:Ignorable="d"
-        Title="Drinks" Height="300" Width="300">
+        Title="Drinks" Height="300" Width="300" AllowsTransparency="True">
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\user.STEP.004\Desktop\321716_900.jpg" Stretch="UniformToFill" TileMode="Tile" />
     </Window.Background>
@@ -16,26 +16,28 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Background="Transparent">
-            <ComboBox  Grid.Column="0" Height="20" Margin="5" Background="Transparent" VerticalAlignment="Top"  Name="comboboxC"  SelectionChanged="comboboxC_SelectionChanged"></ComboBox>
-            
-        </StackPanel>
-        
-        
-        <ListView  Name="LV" Background="Transparent" Grid.Row="1">
+
+
+        <ListView  Name="ListOfDrinks" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" Grid.Row="1">
+            <ListBox.Resources>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Margin" Value="1" />
+                </Style>
+            </ListBox.Resources>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center" ></WrapPanel>
+                    <WrapPanel Background="Transparent" HorizontalAlignment="Center" ></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <Border BorderBrush="Transparent" BorderThickness="2" CornerRadius="10" Height="150" Width="250" Margin="1">
+                    <Border BorderBrush="White" Background="Transparent" BorderThickness="2" CornerRadius="10" Height="400" Width="250" Margin="5">
                         <StackPanel Background="Transparent" >
                             <TextBlock HorizontalAlignment="Center" FontSize="18" Text="{Binding Name}"/>
                             <Image HorizontalAlignment="Center" Source="{Binding Path}" Height="200" Width="200"/>
-                            
+                           
                             <TextBlock HorizontalAlignment="Center" FontSize="20" Text="{Binding Price,StringFormat={}{0} GRN }"/>
                         </StackPanel>
 
@@ -43,5 +45,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Controls:ProgressRing Name="ProgRing" IsActive="False" Grid.Row="1"></Controls:ProgressRing>
+
     </Grid>
 </Controls:MetroWindow>

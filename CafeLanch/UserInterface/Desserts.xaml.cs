@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,9 +20,29 @@ namespace WpfApp11
     /// </summary>
     public partial class Desserts : MetroWindow
     {
+        ServiceReference1.DessertClient DessertClient = new ServiceReference1.DessertClient();
+
         public Desserts()
         {
             InitializeComponent();
+            GetDessertFromService();
+        }
+        public void GetDessertFromService()
+        {
+            ProgRing.IsActive = true;
+            Task t = new Task(() =>
+            {
+                var list = DessertClient.GetDessert();
+                this.Invoke(() =>
+                {
+                    ListOfDesserts.ItemsSource = list;
+                    ProgRing.IsActive = false;
+                });
+
+            });
+            t.Start();
+
+
         }
     }
 }

@@ -20,5 +20,8 @@ namespace LanchWCF.Models
         public string Path { get; set; }
         [DataMember]
         public List<OrderDTO> Orders { get; set; }
+        [DataMember]
+
+        public CategoryDTO Categories { get; set; }
     }
 }

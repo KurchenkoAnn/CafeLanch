@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,24 +20,34 @@ namespace WpfApp11
     /// </summary>
     public partial class Drinks : MetroWindow
     {
+        ServiceReference1.DrinkClient DrinkClient = new ServiceReference1.DrinkClient();
+
         public Drinks()
         {
             InitializeComponent();
+            //ListOfDrinks.ItemsSource = DrinkClient.GetDrinks();
+            GetDrinkFromService();
+
+        }
+
+        public void GetDrinkFromService()
+        {
+            ProgRing.IsActive = true;
+            Task t = new Task(() =>
+            {
+                
+                var list = DrinkClient.GetDrinks();
+
+                this.Invoke(() =>
+                {
+                    ListOfDrinks.ItemsSource = list;
+                    ProgRing.IsActive = false;
+                });
+
+            });
+            t.Start();
         }
 
        
-
-        private void comboboxC_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LV.ItemsSource = null;
-            LV.Items.Clear();
-            //foreach (Clothes clothes in shopContext.Clothess.Include("category"))
-            //{
-            //    if (comboboxC.SelectedItem.ToString().Equals(clothes.category.Name))
-            //    {
-            //        LV.Items.Add(clothes);
-            //    }
-            //}
-        }
     }
 }

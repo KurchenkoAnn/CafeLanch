@@ -17,7 +17,7 @@ namespace LanchWCF.Models
     
     public class AllClasses : ICategory, IDrink, IPizza, IOrder, IIngredient,ISushi,IDessert
     {
-        CafeLanch cafelanch = new CafeLanch();
+        cafeLanch.CafeLanch cafelanch = new cafeLanch.CafeLanch();
         
         public List<CategoryDTO> GetCategories()
         {
@@ -40,7 +40,7 @@ namespace LanchWCF.Models
 
         public List<DrinkDTO> GetDrinks()
         {
-            List<Drink> Drinks = cafelanch.Drinks.ToList();
+            List<Drink> Drinks = cafelanch.Drinks.Include("Category").ToList();
             List<DrinkDTO> DTODrinks = new List<DrinkDTO>();
             foreach (var p in Drinks)
             {
@@ -48,12 +48,19 @@ namespace LanchWCF.Models
                 {
                     ID = p.ID,
                     Name = p.Name,
-                    Price=p.Price
-                   
+                    Price = p.Price,
+                    Path = p.Path,
+                    Categories = new CategoryDTO
+                    {
+                        ID = p.ID,
+                        Name = p.Name,
+
+                    }
                 };
                 DTODrinks.Add(drink);
             }
             return DTODrinks;
+
         }
 
         public List<IngredientDTO> GetIngratients()

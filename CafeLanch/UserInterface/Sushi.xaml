@@ -11,7 +11,7 @@
         <ImageBrush ImageSource="C:\Users\user.STEP.004\Desktop\321716_900.jpg" Stretch="UniformToFill" TileMode="Tile" />
     </Window.Background>
     <Grid>
-        <ListView  Background="Transparent">
+        <ListView  Background="Transparent" Name="ListOfSushis" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center" ></WrapPanel>
@@ -20,7 +20,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <Border BorderBrush="Transparent" BorderThickness="2" CornerRadius="10" Height="150" Width="250" Margin="1">
+                    <Border BorderBrush="Transparent" BorderThickness="2" CornerRadius="10" Height="400" Width="300" Margin="5">
                         <StackPanel Background="Transparent" >
                             <TextBlock HorizontalAlignment="Center" FontSize="18" Text="{Binding Name}"/>
                             <Image HorizontalAlignment="Center" Source="{Binding Path}" Height="200" Width="200"/>
@@ -38,5 +38,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Controls:ProgressRing Name="ProgRing" IsActive="False"></Controls:ProgressRing>
     </Grid>
 </Controls:MetroWindow>
